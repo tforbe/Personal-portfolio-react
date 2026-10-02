@@ -2,7 +2,7 @@ import React from 'react';
 // home function 
 function Home() {
     return (
-    <div style={{padding: '15px', textAlign: 'center'}}>
+    <div style={{padding: '15px', textAlign: 'center', color: '#a8a8a8'}}>
         {/* Home page details */}
         <h1>Welcome to my Portfolio</h1>
         <h3>I am Tristin Forbes, a student in a software engineering program</h3>
