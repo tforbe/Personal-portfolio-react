@@ -1,122 +1,54 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import React from 'react';
+import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Education from './pages/Education';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
+
+import Logo from './assets/TF-logo.png';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Tristin Forbes's Portfolio</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
+    <Router>
+      <div style={{fontFamily: 'Arial, sans-serif'}}>
+          <nav style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '15px 30px',
+            backgroundColor: '#808080',
+            color: '#000000'
+          }}> 
+          <div style={{display: 'flex', alignItems: 'center'}}>
+            <img src={Logo} alt="TF Portfolio Logo"
+            style={{height: '50px', width: 'auto'}}
+            />
+          </div>
+          <ul style={{display: 'flex', listStyle: 'none', gap: '20px', margin: 0, padding: 0}}>
+            <li><Link to="/" style={{color: '#ffffff', textDecoration: 'none'}}>Home</Link></li>
+            <li><Link to="/about" style={{color: '#ffffff', textDecoration: 'none'}}>About Me</Link></li>
+            <li><Link to="/projects" style={{color: '#ffffff', textDecoration: 'none'}}>Projects</Link></li>
+            <li><Link to="/education" style={{color: '#ffffff', textDecoration: 'none'}}>Education</Link></li>
+            <li><Link to="/services" style={{color: '#ffffff', textDecoration: 'none'}}>Services</Link></li>
+            <li><Link to="/contact" style={{color: '#ffffff', textDecoration: 'none'}}>Contact</Link></li>
           </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+          </nav>
+          <div style={{maxWidth: '1200px', margin: '0 auto', padding: '20px'}}>
+            <Routes>
+              <Route path="/" element={<Home />}/>
+              <Route path="/about" element={<About />}/>
+              <Route path="/projects" element={<Projects />}/>
+              <Route path="/education" element={<Education />}/>
+              <Route path="/services" element={<Services />}/>
+              <Route path="/contact" element={<Contact />}/>
+            </Routes>
+          </div>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
