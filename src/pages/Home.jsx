@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 // home function 
 function Home() {
+    const navigate = useNavigate();
     return (
     <div style={{padding: '15px', textAlign: 'center', color: '#a8a8a8'}}>
         {/* Home page details */}
@@ -11,7 +13,8 @@ function Home() {
             <h4> My Mission</h4>
             <p>My goal is to create a functional react website</p>
         </div>
-        <button style={{padding: '10px 25px', cursor: 'pointer'}}>
+        <button onClick={() => navigate('/about')} 
+        style={{padding: '10px 25px', cursor: 'pointer'}}>
             {/* button to about me */}
             Learn More About Me
         </button>

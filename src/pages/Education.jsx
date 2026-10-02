@@ -29,13 +29,7 @@ return (
         {educationList.map((education) => (
         <div 
             key={education.id} 
-            style={{ 
-            border: '1px solid #6b6b6b', 
-            borderRadius: '6px', 
-            padding: '20px', 
-            backgroundColor: '#000000', 
-            boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-            }}>
+            style={{ border: '1px solid #6b6b6b', borderRadius: '6px', padding: '20px', backgroundColor: '#000000', boxShadow: '0 2px 4px #ffffff'}}>
             <span style={{ fontSize: '13px', color: '#808080', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
                 {education.timeline}
             </span>
